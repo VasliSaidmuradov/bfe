@@ -35,6 +35,32 @@ const flat = (arr = [], depth = 1) => {
   return result
 }
 
+// #2
+function flat(arr, depth = 1) {
+  if (!depth) return arr  
+  let res = []
+
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      res = res.concat(flat(item, depth - 1))
+    } else {
+      res = res.concat([item])
+    }
+  }
+
+  return res
+}
+
+// #3
+function flat(arr, depth = 1) {
+  while (depth-- > 0 && arr.some(Array.isArray)) {
+    arr = [].concat(...arr)
+  }
+
+  return arr
+}
+
+
 
 const arr = [1, [2], [3, [4]]];
 
