@@ -53,7 +53,7 @@ function flat(arr, depth = 1) {
 
 // #3
 function flat(arr, depth = 1) {
-  while (depth-- > 0 && arr.some(Array.isArray)) {
+  while (arr.some(Array.isArray)) {
     arr = [].concat(...arr)
   }
 
